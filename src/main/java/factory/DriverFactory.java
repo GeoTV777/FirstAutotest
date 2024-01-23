@@ -1,27 +1,27 @@
 package factory;
 
 import exeption.BrowserNotSapportedExeption;
+import factory.settings.IDriverSettings;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class DriverFactory {
-    private String browserName = System.getProperty("browser.name","chrome");
-    private String[] arguments;
-    public DriverFactory(String... arguments) {
-        this.arguments = arguments;
-    }
-
+    private String browserName = System.getProperty("browser.name");
 
     public WebDriver create() {
         browserName = browserName.toLowerCase();
+        IDriverSettings settings= null;
+
         switch (browserName){
             case "chrome": {
-                WebDriverManager.chromedriver().setup();
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments(arguments);
-                return new ChromeDriver(chromeOptions);
+                return new ChromeDriver((ChromeOptions) settings.settings());
+            }
+            case "firefox":{
+                return new FirefoxDriver((FirefoxOptions) settings.settings());
             }
         }
         throw new BrowserNotSapportedExeption(browserName);
