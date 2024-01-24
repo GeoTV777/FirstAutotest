@@ -10,7 +10,7 @@ public class Header extends AbsCommon {
     }
 
     public void clickSearchButton() {
-        driver.findElement(By.cssSelector("s")).click();
+        driver.findElement(By.xpath("(//nav/div/div[./[not)(self::div)]])[1]")).click();
     }
 
 
