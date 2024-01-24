@@ -2,10 +2,10 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class MainPage extends AbsBasePage {
+public class PersonalArea extends AbsBasePage {
     // вызываем конструктор родителя
     // необходимо делать всегда,когда переопределяется конструктор родителя
-    public MainPage(WebDriver driver) {
+    public PersonalArea (WebDriver driver) {
         super(driver);
     }
 }

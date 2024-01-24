@@ -9,9 +9,12 @@ public class Header extends AbsCommon {
         super(driver);
     }
 
-    public void clickSearchButton() {
-        driver.findElement(By.xpath("(//nav/div/div[./[not)(self::div)]])[1]")).click();
-    }
+//    public void clickSearchButton() {
+//        driver.findElement(By.xpath("(//nav/div/div[./[not)(self::div)]])[1]")).click();
+//    }
 
+    public void clickSignInButton() {
+        driver.findElement(By.xpath("//button[text()='Войти']"));
+    }
 
 }

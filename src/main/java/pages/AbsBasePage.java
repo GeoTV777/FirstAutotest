@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class AbsBasePage extends AbsCommon {
     private String BASE_URL = System.getProperty("base.url");
+    //Конструктор класса `AbsBasePage` принимает объект `WebDriver`
+    // в качестве параметра и вызывает конструктор суперкласса `AbsCommon`,
+    // передавая ему этот объект.
      public AbsBasePage(WebDriver driver) {
          super(driver);
      }
